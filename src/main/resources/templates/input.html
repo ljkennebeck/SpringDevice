@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert New Device</title>
+</head>
+<body>
+	<form th:object="${newDevice}" th:action="@{/update/{id}/(id=${newDevice.id})}" method='POST'>
+		Owner: <input name="owner.name" size="20" th:field="*{owner.name}"><br>
+		Phone Number: <input name="owner.number" size="20" th:field="*{owner.number}"><br>
+		Brand: <input name="brand.brand" size="10" th:field="*{brand.brand}"><br>
+		Serial ID: <input name="serialId" size="20" th:field="*{serialId}"><br>
+		Color: <input name="color" size="20" th:field="*{color}"><br>
+	
+		<input name="submit" type="submit" value="submit" />
+	</form>
+	<a href="../viewAll">View all Devices</a>
+</body>
+</html>

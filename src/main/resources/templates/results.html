@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>View All Devices</title>
+</head>
+<body>
+	<form>
+		<table>
+			<tr th:each="currentDevice: ${devices}">
+				<td th:text="${currentDevice.id}" />
+				<td th:text="${currentDevice.owner.name}" />
+				<td th:text="${currentDevice.owner.number}" />
+				<td th:text="${currentDevice.brand.brand}" />
+				<td th:text="${currentDevice.serialId}" />
+				<td th:text="${currentDevice.color}" />
+				<td><a th:href="@{/edit/{id}(id=${currentDevice.id})}">Edit</a></td>
+				<td><a th:href="@{/delete/{id}(id=${currentDevice.id})}">Delete</a></td>
+			</tr>
+		</table>
+	</form>
+	<a href="/inputDevice">Add a new Device</a>
+</body>
+</html>
